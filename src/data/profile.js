@@ -3,7 +3,7 @@ export const profile = {
   title: "Software Engineer · Full Stack Developer · AI Enthusiast",
   introduction:
     "I build software that matters. Passionate about crafting elegant, scalable solutions at the intersection of full-stack development, artificial intelligence, and cloud computing.",
-  resumeLink: "#", // Replace with your Google Drive link
+  resumeLink: "https://drive.google.com/file/d/1HpfngpAKEtMu8Usj--qewmPBwWzCFrSl/view?usp=sharing",
   about: [
     "I'm a Computer Science Engineering student with a deep passion for software engineering and a relentless curiosity for how things work under the hood.",
     "My focus areas span Full Stack Development, Artificial Intelligence, Cloud Computing, and Backend Systems. I enjoy the entire spectrum — from designing intuitive user interfaces to architecting robust APIs and deploying scalable infrastructure.",
@@ -14,6 +14,6 @@ export const profile = {
     email: "mailto:rishabhsahan@mail.com",
     linkedin: "https://www.linkedin.com/in/rishabh-jain-h/",
     github: "https://github.com/rishabh-sahan/",
-    twitter: "https://x.com/rishabh_sahan",
+    twitter: "https://x.com/rishabh_sahan/",
   },
 };
