@@ -1,4 +1,4 @@
-import { Mail, ArrowUpRight } from "lucide-react";
+import { Mail, Phone, ArrowUpRight } from "lucide-react";
 import { LinkedInIcon, GitHubIcon, InstagramIcon, XTwitterIcon } from "../components/BrandIcons";
 import { profile } from "../data/profile";
 import { SectionHeading } from "../components/SectionHeading";
@@ -35,6 +35,15 @@ export function Contact() {
       isBrand: true,
     },
     {
+      key: "phone",
+      label: "Phone",
+      href: profile.social.phone,
+      icon: Phone,
+      value: "+91 93531 13908",
+      external: false,
+      isBrand: false,
+    },
+    {
       key: "instagram",
       label: "Instagram",
       href: profile.social.instagram,
@@ -56,7 +65,7 @@ export function Contact() {
   ];
 
   const handleClick = (e, key, href) => {
-    if (key === "email") {
+    if (key === "email" || key === "phone") {
       e.preventDefault();
       window.location.href = href;
     }

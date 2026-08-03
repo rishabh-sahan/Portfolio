@@ -13,13 +13,6 @@ export function Footer() {
           {/* Social icons */}
           <SocialLinks size={18} />
         </div>
-
-        {/* Built with */}
-        <div className="mt-6 text-center">
-          <p className="text-xs text-zinc-400 dark:text-zinc-600">
-            Built with React • Vite • Tailwind CSS
-          </p>
-        </div>
       </div>
     </footer>
   );

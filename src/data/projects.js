@@ -1,14 +1,5 @@
 export const projects = [
   {
-    title: "StockPulse India",
-    description:
-      "An AI-powered stock market research and news aggregation platform. Delivers real-time market insights, sentiment analysis, and curated financial news for the Indian stock market.",
-    techStack: ["React", "Node.js", "OpenAI API", "REST APIs", "Tailwind CSS"],
-    github: "https://github.com/rishabh-sahan/stockpulse-india",
-    live: "#",
-    thumbnail: "stockpulse",
-  },
-  {
     title: "PentAI",
     description:
       "An AI-powered application leveraging OpenRouter for multi-model AI access with secure user authentication via Supabase. Features intelligent conversations and seamless user management.",
@@ -16,6 +7,23 @@ export const projects = [
     github: "https://github.com/rishabh-sahan/pentai",
     live: "#",
     thumbnail: "pentai",
+  },
+  {
+    title: "Wellness Point",
+    description:
+      "A scalable MERN-based e-commerce application with Razorpay payment integration, authentication, product management, and responsive UI for health supplement sales.",
+    techStack: [
+      "React",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "Razorpay",
+      "Tailwind CSS",
+      "JWT",
+    ],
+    github: null,
+    live: "https://wellness-point.in/",
+    thumbnail: "wellness",
   },
   {
     title: "BlueForce",

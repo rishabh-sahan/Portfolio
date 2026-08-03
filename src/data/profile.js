@@ -11,7 +11,8 @@ export const profile = {
     "I'm actively seeking opportunities to contribute to engineering teams building products at scale — at companies like Microsoft, Google, Amazon, or high-growth startups pushing the boundaries of what's possible.",
   ],
   social: {
-    email: "mailto:rishabhsahan@mail.com",
+    email: "mailto:rishabhsahan@gmail.com",
+    phone: "tel: +91 9353113908",
     linkedin: "https://www.linkedin.com/in/rishabh-jain-h/",
     github: "https://github.com/rishabh-sahan/",
     instagram: "https://www.instagram.com/rishabh_sahan/",
