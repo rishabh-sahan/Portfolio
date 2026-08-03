@@ -1,5 +1,5 @@
 import { Mail } from "lucide-react";
-import { LinkedInIcon, GitHubIcon, XTwitterIcon } from "./BrandIcons";
+import { LinkedInIcon, GitHubIcon, InstagramIcon, XTwitterIcon } from "./BrandIcons";
 import { profile } from "../data/profile";
 import { cn } from "../utils/cn";
 
@@ -20,6 +20,14 @@ const socialItems = [
     isBrand: true,
   },
   {
+    key: "instagram",
+    icon: InstagramIcon,
+    href: profile.social.instagram,
+    label: "Instagram",
+    isBrand: true,
+    strokeOnly: true,
+  },
+  {
     key: "twitter",
     icon: XTwitterIcon,
     href: profile.social.twitter,
@@ -29,12 +37,20 @@ const socialItems = [
 ];
 
 export function SocialLinks({ size = 20, className, showLabels = false }) {
+  const handleClick = (e, key, href) => {
+    if (key === "email") {
+      e.preventDefault();
+      window.location.href = href;
+    }
+  };
+
   return (
     <div className={cn("flex items-center gap-3", className)}>
-      {socialItems.map(({ key, icon: Icon, href, label, isBrand }) => (
+      {socialItems.map(({ key, icon: Icon, href, label, isBrand, strokeOnly }) => (
         <a
           key={key}
           href={href}
+          onClick={(e) => handleClick(e, key, href)}
           target={key === "email" ? undefined : "_blank"}
           rel={key === "email" ? undefined : "noopener noreferrer"}
           aria-label={label}
@@ -45,7 +61,7 @@ export function SocialLinks({ size = 20, className, showLabels = false }) {
             "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-900 dark:focus-visible:outline-zinc-100"
           )}
         >
-          {isBrand ? (
+          {isBrand && !strokeOnly ? (
             <Icon size={size} className="fill-current" />
           ) : (
             <Icon size={size} strokeWidth={1.5} />

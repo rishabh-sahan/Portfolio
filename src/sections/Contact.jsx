@@ -1,46 +1,67 @@
 import { Mail, ArrowUpRight } from "lucide-react";
-import { LinkedInIcon, GitHubIcon, XTwitterIcon } from "../components/BrandIcons";
+import { LinkedInIcon, GitHubIcon, InstagramIcon, XTwitterIcon } from "../components/BrandIcons";
 import { profile } from "../data/profile";
 import { SectionHeading } from "../components/SectionHeading";
 import { FadeIn } from "../components/FadeIn";
 import { cn } from "../utils/cn";
 
-const contactLinks = [
-  {
-    label: "Email",
-    href: profile.social.email,
-    icon: Mail,
-    value: profile.social.email.replace("mailto:", ""),
-    external: false,
-    isBrand: false,
-  },
-  {
-    label: "LinkedIn",
-    href: profile.social.linkedin,
-    icon: LinkedInIcon,
-    value: "Connect on LinkedIn",
-    external: true,
-    isBrand: true,
-  },
-  {
-    label: "GitHub",
-    href: profile.social.github,
-    icon: GitHubIcon,
-    value: "View on GitHub",
-    external: true,
-    isBrand: true,
-  },
-  {
-    label: "X (Twitter)",
-    href: profile.social.twitter,
-    icon: XTwitterIcon,
-    value: "Follow on X",
-    external: true,
-    isBrand: true,
-  },
-];
-
 export function Contact() {
+  const contactLinks = [
+    {
+      key: "email",
+      label: "Email",
+      href: profile.social.email,
+      icon: Mail,
+      value: profile.social.email.replace("mailto:", ""),
+      external: false,
+      isBrand: false,
+    },
+    {
+      key: "linkedin",
+      label: "LinkedIn",
+      href: profile.social.linkedin,
+      icon: LinkedInIcon,
+      value: "Connect on LinkedIn",
+      external: true,
+      isBrand: true,
+    },
+    {
+      key: "github",
+      label: "GitHub",
+      href: profile.social.github,
+      icon: GitHubIcon,
+      value: "View on GitHub",
+      external: true,
+      isBrand: true,
+    },
+    {
+      key: "instagram",
+      label: "Instagram",
+      href: profile.social.instagram,
+      icon: InstagramIcon,
+      value: "Follow on Instagram",
+      external: true,
+      isBrand: true,
+      strokeOnly: true,
+    },
+    {
+      key: "twitter",
+      label: "X (Twitter)",
+      href: profile.social.twitter,
+      icon: XTwitterIcon,
+      value: "Follow on X",
+      external: true,
+      isBrand: true,
+    },
+  ];
+
+  const handleClick = (e, key, href) => {
+    if (key === "email") {
+      e.preventDefault();
+      window.location.href = href;
+    }
+  };
+
   return (
     <section id="contact" className="py-20 sm:py-28">
       <div className="mx-auto max-w-6xl px-6">
@@ -51,12 +72,13 @@ export function Contact() {
           />
         </FadeIn>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-2xl">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl">
           {contactLinks.map(
-            ({ label, href, icon: Icon, value, external, isBrand }, index) => (
+            ({ key, label, href, icon: Icon, value, external, isBrand, strokeOnly }, index) => (
               <FadeIn key={label} delay={index * 100}>
                 <a
                   href={href}
+                  onClick={(e) => handleClick(e, key, href)}
                   target={external ? "_blank" : undefined}
                   rel={external ? "noopener noreferrer" : undefined}
                   className={cn(
@@ -69,7 +91,7 @@ export function Contact() {
                   )}
                 >
                   <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-zinc-100 dark:bg-zinc-800 shrink-0">
-                    {isBrand ? (
+                    {isBrand && !strokeOnly ? (
                       <Icon size={18} className="text-zinc-600 dark:text-zinc-400 fill-current" />
                     ) : (
                       <Icon

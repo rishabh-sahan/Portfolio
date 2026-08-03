@@ -14,6 +14,7 @@ export const profile = {
     email: "mailto:rishabhsahan@mail.com",
     linkedin: "https://www.linkedin.com/in/rishabh-jain-h/",
     github: "https://github.com/rishabh-sahan/",
+    instagram: "https://www.instagram.com/rishabh_sahan/",
     twitter: "https://x.com/rishabh_sahan/",
   },
 };

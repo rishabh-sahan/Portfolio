@@ -33,7 +33,7 @@ export function Resume() {
                   Rishabh Jain — Resume
                 </p>
                 <p className="text-sm text-zinc-500 dark:text-zinc-400">
-                  PDF • Updated 2025
+                  PDF • Updated Recently
                 </p>
               </div>
               <a
