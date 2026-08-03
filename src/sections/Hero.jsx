@@ -3,6 +3,7 @@ import { profile } from "../data/profile";
 import { Button } from "../components/Button";
 import { SocialLinks } from "../components/SocialLinks";
 import { FadeIn } from "../components/FadeIn";
+import portrait from "../assets/portrait.png";
 
 export function Hero() {
   return (
@@ -74,14 +75,12 @@ export function Hero() {
           >
             <div className="relative">
               <div className="w-64 h-64 sm:w-72 sm:h-72 lg:w-80 lg:h-80 rounded-2xl overflow-hidden border border-zinc-200 dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-900 shadow-lg">
-                <div className="w-full h-full bg-gradient-to-br from-zinc-200 to-zinc-300 dark:from-zinc-800 dark:to-zinc-700 flex items-center justify-center">
-                  <span className="text-6xl sm:text-7xl font-bold text-zinc-400 dark:text-zinc-600 select-none">
-                    {profile.name
-                      .split(" ")
-                      .map((n) => n[0])
-                      .join("")}
-                  </span>
-                </div>
+                <img
+                  src={portrait}
+                  alt={profile.name}
+                  className="w-full h-full object-cover"
+                  loading="eager"
+                />
               </div>
               {/* Subtle decorative element */}
               <div className="absolute -z-10 inset-0 translate-x-4 translate-y-4 rounded-2xl bg-zinc-200/50 dark:bg-zinc-800/50" />
