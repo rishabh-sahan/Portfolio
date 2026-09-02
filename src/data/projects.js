@@ -5,7 +5,7 @@ export const projects = [
       "An AI-powered application leveraging OpenRouter for multi-model AI access with secure user authentication via Supabase. Features intelligent conversations and seamless user management.",
     techStack: ["React", "Supabase", "OpenRouter API", "Vite", "Tailwind CSS"],
     github: "https://github.com/rishabh-sahan/pentai",
-    live: "#",
+    live: "https://pent-ai.vercel.app/",
     thumbnail: "pentai",
   },
   {

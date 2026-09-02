@@ -77,6 +77,23 @@ export function ProjectCard({
 
       {/* Actions */}
       <div className="p-6 pt-0 flex items-center gap-3">
+        {hasLive && (
+          <a
+            href={live}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`View live demo of ${title}`}
+            className={cn(
+              "inline-flex items-center gap-1.5 px-4 py-2 text-sm font-medium rounded-lg",
+              "bg-zinc-900 text-white dark:bg-zinc-50 dark:text-zinc-900",
+              "hover:bg-zinc-800 dark:hover:bg-zinc-200",
+              "transition-colors duration-200"
+            )}
+          >
+            <ExternalLink size={15} strokeWidth={1.5} />
+            Live Demo
+          </a>
+        )}
         {hasGithub && (
           <a
             href={github}
@@ -93,23 +110,6 @@ export function ProjectCard({
           >
             <GitHubIcon size={15} className="fill-current" />
             Code
-          </a>
-        )}
-        {hasLive && (
-          <a
-            href={live}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label={`View live demo of ${title}`}
-            className={cn(
-              "inline-flex items-center gap-1.5 px-4 py-2 text-sm font-medium rounded-lg",
-              "bg-zinc-900 text-white dark:bg-zinc-50 dark:text-zinc-900",
-              "hover:bg-zinc-800 dark:hover:bg-zinc-200",
-              "transition-colors duration-200"
-            )}
-          >
-            <ExternalLink size={15} strokeWidth={1.5} />
-            Live Demo
           </a>
         )}
       </div>
