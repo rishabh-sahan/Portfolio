@@ -4,7 +4,7 @@ export const projects = [
     description:
       "An AI-powered application leveraging OpenRouter for multi-model AI access with secure user authentication via Supabase. Features intelligent conversations and seamless user management.",
     techStack: ["React", "Supabase", "OpenRouter API", "Vite", "Tailwind CSS"],
-    github: "https://github.com/rishabh-sahan/pentai",
+    github: "https://github.com/rishabh-sahan/PentAI",
     live: "https://pent-ai.vercel.app/",
     thumbnail: "pentai",
   },
@@ -37,8 +37,8 @@ export const projects = [
       "JWT",
       "Tailwind CSS",
     ],
-    github: "https://github.com/rishabh-sahan/blueforce",
-    live: "#",
+    github: "https://github.com/rishabh-sahan/Blueforce",
+    live: "https://blue-force.vercel.app/",
     thumbnail: "blueforce",
   },
 ];
