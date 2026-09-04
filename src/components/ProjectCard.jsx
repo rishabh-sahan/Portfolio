@@ -91,7 +91,7 @@ export function ProjectCard({
             )}
           >
             <ExternalLink size={15} strokeWidth={1.5} />
-            Live Demo
+            Live Link
           </a>
         )}
         {hasGithub && (
