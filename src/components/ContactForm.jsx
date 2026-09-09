@@ -52,9 +52,12 @@ export function ContactForm() {
         setStatus("success");
         setFormData({ name: "", email: "", phone: "", message: "" });
       } else {
+        const body = await response.json().catch(() => null);
+        console.error("Formspree submission failed:", response.status, body);
         setStatus("error");
       }
-    } catch {
+    } catch (err) {
+      console.error("Formspree submission threw:", err);
       setStatus("error");
     }
   };
