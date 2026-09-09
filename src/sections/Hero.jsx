@@ -1,9 +1,10 @@
 import { ArrowRight, Download } from "lucide-react";
+import { Link } from "react-router-dom";
 import { profile } from "../data/profile";
 import { Button } from "../components/Button";
 import { SocialLinks } from "../components/SocialLinks";
 import { FadeIn } from "../components/FadeIn";
-import portrait from "../assets/portrait.png";
+import portrait from "../assets/portrait.webp";
 
 export function Hero() {
   return (
@@ -16,7 +17,7 @@ export function Hero() {
           {/* Text content */}
           <div className="order-2 lg:order-1">
             <FadeIn delay={0}>
-              <p className="text-sm font-medium tracking-wide uppercase text-zinc-500 dark:text-zinc-400 mb-4">
+              <p className="text-sm font-medium tracking-wide uppercase text-indigo-600 dark:text-indigo-400 mb-4">
                 Welcome
               </p>
             </FadeIn>
@@ -41,12 +42,12 @@ export function Hero() {
 
             <FadeIn delay={400}>
               <div className="mt-8 flex flex-wrap gap-3">
-                <a href="#projects">
+                <Link to="/projects">
                   <Button variant="primary" size="lg">
                     View Projects
                     <ArrowRight size={16} strokeWidth={2} />
                   </Button>
-                </a>
+                </Link>
                 <a
                   href={profile.resumeLink}
                   target="_blank"

@@ -10,8 +10,17 @@ export function FadeIn({
 }) {
   const ref = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
+  const [reducedMotion, setReducedMotion] = useState(false);
 
   useEffect(() => {
+    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    setReducedMotion(mediaQuery.matches);
+
+    if (mediaQuery.matches) {
+      setIsVisible(true);
+      return;
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -37,6 +46,9 @@ export function FadeIn({
     none: "translate3d(0, 0, 0)",
   };
 
+  const effectiveDuration = reducedMotion ? 0 : duration;
+  const effectiveDelay = reducedMotion ? 0 : delay;
+
   return (
     <div
       ref={ref}
@@ -44,7 +56,7 @@ export function FadeIn({
       style={{
         opacity: isVisible ? 1 : 0,
         transform: isVisible ? "translate3d(0, 0, 0)" : transforms[direction],
-        transition: `opacity ${duration}ms ease-out ${delay}ms, transform ${duration}ms ease-out ${delay}ms`,
+        transition: `opacity ${effectiveDuration}ms ease-out ${effectiveDelay}ms, transform ${effectiveDuration}ms ease-out ${effectiveDelay}ms`,
       }}
     >
       {children}

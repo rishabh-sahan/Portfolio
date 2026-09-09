@@ -3,6 +3,7 @@ import { LinkedInIcon, GitHubIcon, InstagramIcon, XTwitterIcon } from "../compon
 import { profile } from "../data/profile";
 import { SectionHeading } from "../components/SectionHeading";
 import { FadeIn } from "../components/FadeIn";
+import { ContactForm } from "../components/ContactForm";
 import { cn } from "../utils/cn";
 
 export function Contact() {
@@ -79,6 +80,19 @@ export function Contact() {
             title="Contact"
             subtitle="Get in touch — I'd love to hear from you."
           />
+        </FadeIn>
+
+        <FadeIn delay={100}>
+          <h3 className="text-lg font-semibold text-zinc-900 dark:text-zinc-50 mb-4">
+            Send a message
+          </h3>
+          <ContactForm />
+        </FadeIn>
+
+        <FadeIn delay={150}>
+          <h3 className="text-lg font-semibold text-zinc-900 dark:text-zinc-50 mt-14 mb-6">
+            Or reach me directly
+          </h3>
         </FadeIn>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl">

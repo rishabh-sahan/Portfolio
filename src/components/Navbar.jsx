@@ -1,21 +1,39 @@
 import { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { ThemeToggle } from "./ThemeToggle";
 import { useScrollShrink } from "../hooks/useScrollShrink";
+import { useActiveSection } from "../hooks/useActiveSection";
 import { cn } from "../utils/cn";
 
 const navLinks = [
-  { label: "Home", href: "#home" },
-  { label: "About", href: "#about" },
-  { label: "Skills", href: "#skills" },
-  { label: "Projects", href: "#projects" },
-  { label: "Resume", href: "#resume" },
-  { label: "Contact", href: "#contact" },
+  { label: "Home", hash: "" },
+  { label: "About", hash: "about" },
+  { label: "Education", hash: "education" },
+  { label: "Experience", hash: "experience" },
+  { label: "Skills", hash: "skills" },
+  { label: "Projects", hash: "projects" },
+  { label: "Resume", hash: "resume" },
+  { label: "Contact", hash: "contact" },
 ];
 
 export function Navbar({ theme, toggleTheme }) {
   const isScrolled = useScrollShrink(50);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const location = useLocation();
+  const isHome = location.pathname === "/";
+  const isProjectsRoute = location.pathname.startsWith("/project");
+
+  const sectionIds = isHome
+    ? navLinks.filter((l) => l.hash).map((l) => l.hash)
+    : [];
+  const activeHash = useActiveSection(sectionIds);
+
+  const isActive = (hash) => {
+    if (!isHome) return hash === "projects" && isProjectsRoute;
+    if (hash === "") return !activeHash || activeHash === "home";
+    return activeHash === hash;
+  };
 
   const handleLinkClick = () => {
     setMobileOpen(false);
@@ -34,28 +52,30 @@ export function Navbar({ theme, toggleTheme }) {
     >
       <nav className="mx-auto max-w-6xl px-6 flex items-center justify-between">
         {/* Logo / Name */}
-        <a
-          href="#home"
+        <Link
+          to="/"
           className="text-lg font-semibold tracking-tight text-zinc-900 dark:text-zinc-50 transition-colors"
         >
           RJ
-        </a>
+        </Link>
 
         {/* Desktop nav links */}
         <div className="hidden md:flex items-center gap-1">
-          {navLinks.map(({ label, href }) => (
-            <a
-              key={href}
-              href={href}
+          {navLinks.map(({ label, hash }) => (
+            <Link
+              key={label}
+              to={`/${hash ? `#${hash}` : ""}`}
               className={cn(
                 "px-3 py-2 text-sm font-medium rounded-lg",
-                "text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100",
+                isActive(hash)
+                  ? "text-indigo-700 dark:text-indigo-300 bg-indigo-50 dark:bg-indigo-950/40"
+                  : "text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100",
                 "hover:bg-zinc-100 dark:hover:bg-zinc-800",
                 "transition-colors duration-200"
               )}
             >
               {label}
-            </a>
+            </Link>
           ))}
         </div>
 
@@ -92,20 +112,22 @@ export function Navbar({ theme, toggleTheme }) {
         )}
       >
         <div className="px-6 py-4 bg-white/95 dark:bg-zinc-950/95 backdrop-blur-lg border-b border-zinc-200 dark:border-zinc-800">
-          {navLinks.map(({ label, href }) => (
-            <a
-              key={href}
-              href={href}
+          {navLinks.map(({ label, hash }) => (
+            <Link
+              key={label}
+              to={`/${hash ? `#${hash}` : ""}`}
               onClick={handleLinkClick}
               className={cn(
                 "block px-3 py-2.5 text-sm font-medium rounded-lg",
-                "text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100",
+                isActive(hash)
+                  ? "text-indigo-700 dark:text-indigo-300 bg-indigo-50 dark:bg-indigo-950/40"
+                  : "text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100",
                 "hover:bg-zinc-100 dark:hover:bg-zinc-800",
                 "transition-colors duration-200"
               )}
             >
               {label}
-            </a>
+            </Link>
           ))}
         </div>
       </div>

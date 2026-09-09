@@ -3,6 +3,7 @@ import { cn } from "../utils/cn";
 export function SectionHeading({ title, subtitle, className }) {
   return (
     <div className={cn("mb-12 md:mb-16", className)}>
+      <div className="w-8 h-1 rounded-full bg-indigo-600 dark:bg-indigo-500 mb-4" />
       <h2 className="text-3xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50 sm:text-4xl">
         {title}
       </h2>

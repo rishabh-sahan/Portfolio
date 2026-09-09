@@ -12,7 +12,7 @@ export function ThemeToggle({ theme, toggleTheme }) {
         "hover:bg-zinc-100 dark:hover:bg-zinc-800",
         "transition-colors duration-200",
         "cursor-pointer",
-        "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-900 dark:focus-visible:outline-zinc-100"
+        "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 dark:focus-visible:outline-indigo-400"
       )}
     >
       <Sun

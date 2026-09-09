@@ -1,8 +1,7 @@
 import { cn } from "../utils/cn";
 
 const variants = {
-  primary:
-    "bg-zinc-900 text-white hover:bg-zinc-800 dark:bg-zinc-50 dark:text-zinc-900 dark:hover:bg-zinc-200",
+  primary: "bg-indigo-600 text-white hover:bg-indigo-700",
   secondary:
     "border border-zinc-200 text-zinc-900 hover:bg-zinc-50 dark:border-zinc-800 dark:text-zinc-100 dark:hover:bg-zinc-900",
   ghost:
@@ -27,9 +26,9 @@ export function Button({
       className={cn(
         "inline-flex items-center justify-center gap-2 rounded-lg font-medium",
         "transition-all duration-200 ease-out",
-        "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-900 dark:focus-visible:outline-zinc-100",
+        "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 dark:focus-visible:outline-indigo-400",
         "active:scale-[0.98]",
-        "cursor-pointer",
+        "cursor-pointer disabled:cursor-not-allowed disabled:opacity-60",
         variants[variant],
         sizes[size],
         className

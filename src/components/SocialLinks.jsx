@@ -58,7 +58,7 @@ export function SocialLinks({ size = 20, className, showLabels = false }) {
             "inline-flex items-center gap-2 rounded-lg p-2",
             "text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100",
             "transition-colors duration-200",
-            "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-900 dark:focus-visible:outline-zinc-100"
+            "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 dark:focus-visible:outline-indigo-400"
           )}
         >
           {isBrand && !strokeOnly ? (

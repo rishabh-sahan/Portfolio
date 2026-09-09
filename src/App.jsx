@@ -1,30 +1,38 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Navbar } from "./components/Navbar";
 import { Footer } from "./components/Footer";
-import { Hero } from "./sections/Hero";
-import { About } from "./sections/About";
-import { Skills } from "./sections/Skills";
-import { Projects } from "./sections/Projects";
-import { Resume } from "./sections/Resume";
-import { Contact } from "./sections/Contact";
+import { Home } from "./pages/Home";
+import { ProjectsPage } from "./pages/ProjectsPage";
+import { ProjectDetail } from "./pages/ProjectDetail";
+import { NotFound } from "./pages/NotFound";
 import { useTheme } from "./hooks/useTheme";
+import { useScrollToHash } from "./hooks/useScrollToHash";
+
+function ScrollManager() {
+  useScrollToHash();
+  return null;
+}
 
 export default function App() {
   const { theme, toggleTheme } = useTheme();
 
   return (
-    <div className="min-h-screen">
-      <Navbar theme={theme} toggleTheme={toggleTheme} />
+    <BrowserRouter>
+      <div className="min-h-screen">
+        <ScrollManager />
+        <Navbar theme={theme} toggleTheme={toggleTheme} />
 
-      <main>
-        <Hero />
-        <About />
-        <Skills />
-        <Projects />
-        <Resume />
-        <Contact />
-      </main>
+        <main>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/projects" element={<ProjectsPage />} />
+            <Route path="/project/:slug" element={<ProjectDetail />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </main>
 
-      <Footer />
-    </div>
+        <Footer />
+      </div>
+    </BrowserRouter>
   );
 }

@@ -1,29 +1,20 @@
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import { GitHubIcon } from "./BrandIcons";
+import { thumbnailStyles, thumbnailIcons } from "../data/projectThumbnails";
 import { cn } from "../utils/cn";
 
-/* Minimal color accents for project thumbnails — keeps things neutral */
-const thumbnailStyles = {
-  pentai: "from-violet-50 to-indigo-50 dark:from-violet-950/30 dark:to-indigo-950/30",
-  wellness: "from-emerald-50 to-teal-50 dark:from-emerald-950/30 dark:to-teal-950/30",
-  blueforce: "from-sky-50 to-blue-50 dark:from-sky-950/30 dark:to-blue-950/30",
-};
-
-const thumbnailIcons = {
-  pentai: "🤖",
-  wellness: "🌿",
-  blueforce: "🔵",
-};
-
 export function ProjectCard({
+  slug,
   title,
   description,
   techStack,
   github,
   live,
   thumbnail,
+  showGithub = true,
 }) {
-  const hasGithub = Boolean(github && github !== "#");
+  const hasGithub = Boolean(github && github !== "#" && showGithub);
   const hasLive = Boolean(live && live !== "#");
 
   return (
@@ -55,7 +46,12 @@ export function ProjectCard({
         {/* Content */}
         <div className="p-6 pb-0">
           <h3 className="text-lg font-semibold text-zinc-900 dark:text-zinc-50 mb-2">
-            {title}
+            <Link
+              to={`/project/${slug}`}
+              className="hover:text-indigo-600 dark:hover:text-indigo-400 hover:underline underline-offset-4 transition-colors"
+            >
+              {title}
+            </Link>
           </h3>
           <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed mb-4">
             {description}
@@ -76,7 +72,19 @@ export function ProjectCard({
       </div>
 
       {/* Actions */}
-      <div className="p-6 pt-0 flex items-center gap-3">
+      <div className="p-6 pt-0 flex flex-wrap items-center gap-3">
+        <Link
+          to={`/project/${slug}`}
+          className={cn(
+            "inline-flex items-center gap-1.5 px-4 py-2 text-sm font-medium rounded-lg",
+            "text-zinc-700 dark:text-zinc-300",
+            "hover:bg-zinc-100 dark:hover:bg-zinc-800",
+            "transition-colors duration-200"
+          )}
+        >
+          Details
+          <ArrowRight size={15} strokeWidth={1.5} />
+        </Link>
         {hasLive && (
           <a
             href={live}
@@ -85,8 +93,7 @@ export function ProjectCard({
             aria-label={`View live demo of ${title}`}
             className={cn(
               "inline-flex items-center gap-1.5 px-4 py-2 text-sm font-medium rounded-lg",
-              "bg-zinc-900 text-white dark:bg-zinc-50 dark:text-zinc-900",
-              "hover:bg-zinc-800 dark:hover:bg-zinc-200",
+              "bg-indigo-600 text-white hover:bg-indigo-700",
               "transition-colors duration-200"
             )}
           >
