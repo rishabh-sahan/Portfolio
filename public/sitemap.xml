@@ -20,4 +20,8 @@
     <loc>https://www.rishabh-jain.me/project/blueforce</loc>
     <priority>0.6</priority>
   </url>
+  <url>
+    <loc>https://www.rishabh-jain.me/project/marketminds</loc>
+    <priority>0.6</priority>
+  </url>
 </urlset>

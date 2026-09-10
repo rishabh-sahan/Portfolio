@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
-import { ArrowLeft, ExternalLink } from "lucide-react";
+import { ArrowLeft, ExternalLink, Info } from "lucide-react";
 import { projects } from "../data/projects";
 import { thumbnailStyles, thumbnailIcons } from "../data/projectThumbnails";
 import { GitHubIcon } from "../components/BrandIcons";
@@ -46,6 +46,7 @@ export function ProjectDetail() {
     live,
     thumbnail,
     screenshots,
+    notes,
   } = project;
   const hasGithub = Boolean(github && github !== "#");
   const hasLive = Boolean(live && live !== "#");
@@ -102,6 +103,28 @@ export function ProjectDetail() {
             )}
           </div>
         </FadeIn>
+
+        {notes && notes.length > 0 && (
+          <FadeIn delay={175}>
+            <div className="flex gap-3 p-4 rounded-xl bg-indigo-50 dark:bg-indigo-950/30 border border-indigo-100 dark:border-indigo-900/50 mb-10">
+              <Info
+                size={18}
+                strokeWidth={1.5}
+                className="text-indigo-600 dark:text-indigo-400 shrink-0 mt-0.5"
+              />
+              <ul className="space-y-1.5">
+                {notes.map((note, i) => (
+                  <li
+                    key={i}
+                    className="text-sm text-indigo-900 dark:text-indigo-200 leading-relaxed"
+                  >
+                    {note}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </FadeIn>
+        )}
 
         {/* Visual — real screenshots if available, otherwise the brand placeholder */}
         <FadeIn delay={200}>

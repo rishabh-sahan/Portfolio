@@ -6,6 +6,12 @@ import { ProjectCard } from "../components/ProjectCard";
 import { Button } from "../components/Button";
 import { FadeIn } from "../components/FadeIn";
 
+/* Curated for the homepage teaser — independent of array order so /projects can keep its own order. */
+const featuredSlugs = ["pentai", "marketminds", "blueforce"];
+const featuredProjects = featuredSlugs
+  .map((slug) => projects.find((p) => p.slug === slug))
+  .filter(Boolean);
+
 export function Projects() {
   return (
     <section id="projects" className="py-20 sm:py-28">
@@ -18,7 +24,7 @@ export function Projects() {
         </FadeIn>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {projects.map((project, index) => (
+          {featuredProjects.map((project, index) => (
             <FadeIn key={project.title} delay={index * 100}>
               <ProjectCard {...project} showGithub={false} />
             </FadeIn>
