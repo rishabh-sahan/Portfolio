@@ -20,7 +20,7 @@ export function ProjectCard({
   return (
     <div
       className={cn(
-        "group rounded-xl border border-zinc-200 dark:border-zinc-800",
+        "group h-full rounded-xl border border-zinc-200 dark:border-zinc-800",
         "bg-white dark:bg-zinc-900",
         "overflow-hidden flex flex-col justify-between",
         "transition-all duration-300 ease-out",

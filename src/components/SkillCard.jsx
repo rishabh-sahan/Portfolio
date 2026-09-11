@@ -4,7 +4,7 @@ export function SkillCard({ category, icon: Icon, skills }) {
   return (
     <div
       className={cn(
-        "rounded-xl border border-zinc-200 dark:border-zinc-800",
+        "h-full rounded-xl border border-zinc-200 dark:border-zinc-800",
         "bg-white dark:bg-zinc-900",
         "p-6",
         "transition-all duration-300 ease-out",

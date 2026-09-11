@@ -157,6 +157,9 @@ export function ProjectDetail() {
         </FadeIn>
 
         <FadeIn delay={250}>
+          <h2 className="text-xl font-semibold text-zinc-900 dark:text-zinc-50 mb-4">
+            Overview
+          </h2>
           <div className="space-y-5 mb-10">
             {overview.map((paragraph, i) => (
               <p
